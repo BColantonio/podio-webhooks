@@ -1,0 +1,17 @@
+{
+    "name": "briancolantonio/podio-webhooks",
+    "autoload": {
+        "psr-4": {
+            "Briancolantonio\\PodioWebhooks\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Brian Colantonio"
+        }
+    ],
+    "require": {
+        "podio/podio-php": "^7.0",
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

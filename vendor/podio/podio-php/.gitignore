@@ -1,0 +1,14 @@
+.DS_Store
+.phpunit.result.cache
+docs/*
+examples/config.php
+utils/config.php
+log/*
+Gemfile.lock
+.bundle
+_site
+.idea
+vendor
+composer.lock
+.php-cs-fixer.cache
+clover.xml

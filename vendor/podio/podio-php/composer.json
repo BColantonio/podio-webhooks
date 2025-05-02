@@ -1,0 +1,47 @@
+{
+  "name": "podio-community/podio-php",
+  "description": "PHP Client for Podio API",
+  "keywords": ["podio"],
+  "homepage": "https://github.com/podio-community/podio-php",
+  "license": "MIT",
+  "scripts": {
+    "test": [
+      "@putenv XDEBUG_MODE=coverage",
+      "phpunit --coverage-clover clover.xml --bootstrap vendor/autoload.php tests"
+    ],
+    "upload-coverage": "php-coveralls --coverage_clover=clover.xml -v"
+  },
+  "authors": [
+    {
+      "name": "Daniel Schreiber",
+      "email": "daniel-schreiber@gmx.de"
+    },
+    {
+      "name": "Andreas Haugstrup Pedersen",
+      "email": "haugstrup@podio.com"
+    }
+  ],
+  "require": {
+    "php": "^7.3 || ^8.0",
+    "guzzlehttp/guzzle": ">=6.2.0",
+    "guzzlehttp/psr7": ">=1.7.0",
+    "ext-json": "*"
+  },
+  "suggest": {
+    "composer/ca-bundle": "Improve security through providing current CA ROOT certificates bundle",
+    "kint-php/kint": "Debugging helper for web setups"
+  },
+  "autoload": {
+    "classmap": ["lib/", "lib/error/", "models/", "models/field/"]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Podio\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.0",
+    "php-coveralls/php-coveralls": "^2.1",
+    "phpunit/phpunit": "^9.5.8"
+  }
+}

@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * Handles logging of errors and debug information to file system
+ */
+class PodioLogger
+{
+    public $call_log = array();
+    public $file;
+    public $maxsize;
+
+    public function __construct()
+    {
+        $this->file = dirname(__FILE__).'/../log/podio.log';
+        $this->maxsize = 1024*1024;
+    }
+
+    public function log($text)
+    {
+        if (!is_dir(dirname($this->file))) {
+            mkdir(dirname($this->file), 0777, true);
+        }
+        if ($fp = fopen($this->file, 'ab')) {
+            fwrite($fp, $text);
+            fclose($fp);
+
+            // Trim log file by removing the first 50 lines
+            if (filesize($this->file) > $this->maxsize) {
+                $file = file($this->file);
+                $file = array_splice($file, 0, 50);
+                file_put_contents($this->file, join('', $file));
+            }
+        }
+    }
+}
